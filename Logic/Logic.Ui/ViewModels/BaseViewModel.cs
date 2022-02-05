@@ -1,4 +1,4 @@
-﻿namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
+namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
 {
 	using Models;
 	using Services;
@@ -20,6 +20,10 @@
 		#endregion
 
 		#region methods
+
+		public virtual void OnAppearing()
+		{
+		}
 
 		protected bool SetProperty<T>(ref T backingStore, T value, [CallerMemberName] string propertyName = "", Action onChanged = null)
 		{

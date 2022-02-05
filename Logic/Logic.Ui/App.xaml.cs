@@ -1,8 +1,9 @@
-﻿namespace codingfreaks.XamarinFormsSample.Logic.Ui
+namespace codingfreaks.XamarinFormsSample.Logic.Ui
 {
 	using Services;
 	using System;
 	using System.Linq;
+	using ViewModels;
 	using Xamarin.Forms;
 
 	public partial class App : Application
@@ -12,8 +13,14 @@
 		public App()
 		{
 			InitializeComponent();
-			DependencyService.Register<MockDataStore>();
+			InitDependencies();
 			MainPage = new AppShell();
+		}
+
+		private void InitDependencies()
+		{
+			DependencyService.Register<ItemsViewModel>();
+			DependencyService.Register<MockDataStore>();
 		}
 
 		#endregion

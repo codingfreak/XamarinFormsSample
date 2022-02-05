@@ -1,4 +1,4 @@
-﻿namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
+namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
 {
 	using Models;
 	using System;
@@ -23,22 +23,23 @@
 		{
 			Title = "Browse";
 			Items = new ObservableCollection<Item>();
-			LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+			LoadItemsCommand = new Command(async () => await LoadItemsAsync());
 			ItemTapped = new Command<Item>(OnItemSelected);
 			AddItemCommand = new Command(OnAddItem);
+
 		}
 
 		#endregion
 
 		#region methods
 
-		public void OnAppearing()
+		public override void OnAppearing()
 		{
 			IsBusy = true;
 			SelectedItem = null;
 		}
 
-		private async Task ExecuteLoadItemsCommand()
+		private async Task LoadItemsAsync()
 		{
 			IsBusy = true;
 			try

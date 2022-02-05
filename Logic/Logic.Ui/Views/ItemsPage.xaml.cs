@@ -1,34 +1,17 @@
-﻿namespace codingfreaks.XamarinFormsSample.Logic.Ui.Views
+namespace codingfreaks.XamarinFormsSample.Logic.Ui.Views
 {
+	using BaseTypes;
 	using System;
 	using System.Linq;
-	using ViewModels;
 	using Xamarin.Forms;
 
-	public partial class ItemsPage : ContentPage
+	public partial class ItemsPage : BaseContentPage
 	{
-		#region member vars
-
-		private readonly ItemsViewModel _viewModel;
-
-		#endregion
-
 		#region constructors and destructors
 
 		public ItemsPage()
 		{
 			InitializeComponent();
-			BindingContext = _viewModel = new ItemsViewModel();
-		}
-
-		#endregion
-
-		#region methods
-
-		protected override void OnAppearing()
-		{
-			base.OnAppearing();
-			_viewModel.OnAppearing();
 		}
 
 		#endregion

@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Ui="clr-namespace:codingfreaks.XamarinFormsSample.Logic.Ui;assembly=XamarinFormsSample.Logic.Ui"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Comp="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             Comp:Ignorable="d"
              x:Class="codingfreaks.XamarinFormsSample.Logic.Ui.App">
-	<!--
-        Define global resources and styles here, that apply to all pages in your app.
-    -->
 	<Application.Resources>
 		<ResourceDictionary>
+			<Ui:ViewModelLocator x:Key="ViewModelLocator" d:IsDataSource="true"></Ui:ViewModelLocator>
 			<Color x:Key="Primary">#2196F3</Color>
 			<Style TargetType="Button">
 				<Setter Property="TextColor" Value="White" />
