@@ -1,24 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Ui.Mobile.Views;
-using Xamarin.Forms;
-
-namespace Ui.Mobile.ViewModels
+﻿namespace Ui.Mobile.ViewModels
 {
-    public class LoginViewModel : BaseViewModel
-    {
-        public Command LoginCommand { get; }
+	using System;
+	using System.Linq;
+	using Views;
+	using Xamarin.Forms;
 
-        public LoginViewModel()
-        {
-            LoginCommand = new Command(OnLoginClicked);
-        }
+	public class LoginViewModel : BaseViewModel
+	{
+		#region constructors and destructors
 
-        private async void OnLoginClicked(object obj)
-        {
-            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
-        }
-    }
+		public LoginViewModel()
+		{
+			LoginCommand = new Command(OnLoginClicked);
+		}
+
+		#endregion
+
+		#region methods
+
+		private async void OnLoginClicked(object obj)
+		{
+			// Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
+			await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+		}
+
+		#endregion
+
+		#region properties
+
+		public Command LoginCommand { get; }
+
+		#endregion
+	}
 }

@@ -1,15 +1,20 @@
-﻿using System.ComponentModel;
-using Ui.Mobile.ViewModels;
-using Xamarin.Forms;
-
-namespace Ui.Mobile.Views
+﻿namespace Ui.Mobile.Views
 {
-    public partial class ItemDetailPage : ContentPage
-    {
-        public ItemDetailPage()
-        {
-            InitializeComponent();
-            BindingContext = new ItemDetailViewModel();
-        }
-    }
+	using System;
+	using System.Linq;
+	using ViewModels;
+	using Xamarin.Forms;
+
+	public partial class ItemDetailPage : ContentPage
+	{
+		#region constructors and destructors
+
+		public ItemDetailPage()
+		{
+			InitializeComponent();
+			BindingContext = new ItemDetailViewModel();
+		}
+
+		#endregion
+	}
 }

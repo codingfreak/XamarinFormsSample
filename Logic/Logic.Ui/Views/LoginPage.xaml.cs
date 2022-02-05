@@ -1,21 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Ui.Mobile.ViewModels;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-namespace Ui.Mobile.Views
+﻿namespace Ui.Mobile.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
-    {
-        public LoginPage()
-        {
-            InitializeComponent();
-            this.BindingContext = new LoginViewModel();
-        }
-    }
+	using System;
+	using System.Linq;
+	using ViewModels;
+	using Xamarin.Forms;
+	using Xamarin.Forms.Xaml;
+
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class LoginPage : ContentPage
+	{
+		#region constructors and destructors
+
+		public LoginPage()
+		{
+			InitializeComponent();
+			BindingContext = new LoginViewModel();
+		}
+
+		#endregion
+	}
 }

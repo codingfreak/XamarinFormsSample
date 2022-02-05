@@ -1,11 +1,18 @@
-﻿using System;
-
-namespace Ui.Mobile.Models
+﻿namespace Ui.Mobile.Models
 {
-    public class Item
-    {
-        public string Id { get; set; }
-        public string Text { get; set; }
-        public string Description { get; set; }
-    }
+	using System;
+	using System.Linq;
+
+	public class Item
+	{
+		#region properties
+
+		public string Id { get; set; }
+
+		public string Text { get; set; }
+
+		public string Description { get; set; }
+
+		#endregion
+	}
 }

@@ -1,21 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using Ui.Mobile.Models;
-using Ui.Mobile.ViewModels;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-namespace Ui.Mobile.Views
+﻿namespace Ui.Mobile.Views
 {
-    public partial class NewItemPage : ContentPage
-    {
-        public Item Item { get; set; }
+	using Models;
+	using System;
+	using System.Linq;
+	using ViewModels;
+	using Xamarin.Forms;
 
-        public NewItemPage()
-        {
-            InitializeComponent();
-            BindingContext = new NewItemViewModel();
-        }
-    }
+	public partial class NewItemPage : ContentPage
+	{
+		#region constructors and destructors
+
+		public NewItemPage()
+		{
+			InitializeComponent();
+			BindingContext = new NewItemViewModel();
+		}
+
+		#endregion
+
+		#region properties
+
+		public Item Item { get; set; }
+
+		#endregion
+	}
 }

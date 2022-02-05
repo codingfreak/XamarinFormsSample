@@ -1,18 +1,27 @@
-﻿using System;
-using System.Windows.Input;
-using Xamarin.Essentials;
-using Xamarin.Forms;
-
-namespace Ui.Mobile.ViewModels
+﻿namespace Ui.Mobile.ViewModels
 {
-    public class AboutViewModel : BaseViewModel
-    {
-        public AboutViewModel()
-        {
-            Title = "About";
-            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
-        }
+	using System;
+	using System.Linq;
+	using System.Windows.Input;
+	using Xamarin.Essentials;
+	using Xamarin.Forms;
 
-        public ICommand OpenWebCommand { get; }
-    }
+	public class AboutViewModel : BaseViewModel
+	{
+		#region constructors and destructors
+
+		public AboutViewModel()
+		{
+			Title = "About";
+			OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
+		}
+
+		#endregion
+
+		#region properties
+
+		public ICommand OpenWebCommand { get; }
+
+		#endregion
+	}
 }

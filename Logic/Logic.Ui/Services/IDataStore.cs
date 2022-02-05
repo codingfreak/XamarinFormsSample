@@ -1,15 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace Ui.Mobile.Services
+﻿namespace Ui.Mobile.Services
 {
-    public interface IDataStore<T>
-    {
-        Task<bool> AddItemAsync(T item);
-        Task<bool> UpdateItemAsync(T item);
-        Task<bool> DeleteItemAsync(string id);
-        Task<T> GetItemAsync(string id);
-        Task<IEnumerable<T>> GetItemsAsync(bool forceRefresh = false);
-    }
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Threading.Tasks;
+
+	public interface IDataStore<T>
+	{
+		#region methods
+
+		Task<bool> AddItemAsync(T item);
+
+		Task<bool> DeleteItemAsync(string id);
+
+		Task<T> GetItemAsync(string id);
+
+		Task<IEnumerable<T>> GetItemsAsync(bool forceRefresh = false);
+
+		Task<bool> UpdateItemAsync(T item);
+
+		#endregion
+	}
 }

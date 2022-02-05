@@ -1,54 +1,72 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using Ui.Mobile.Models;
-using Ui.Mobile.Services;
-using Xamarin.Forms;
-
-namespace Ui.Mobile.ViewModels
+﻿namespace Ui.Mobile.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
-    {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+	using Models;
+	using Services;
+	using System;
+	using System.Collections.Generic;
+	using System.ComponentModel;
+	using System.Linq;
+	using System.Runtime.CompilerServices;
+	using Xamarin.Forms;
 
-        bool isBusy = false;
-        public bool IsBusy
-        {
-            get { return isBusy; }
-            set { SetProperty(ref isBusy, value); }
-        }
+	public class BaseViewModel : INotifyPropertyChanged
+	{
+		#region member vars
 
-        string title = string.Empty;
-        public string Title
-        {
-            get { return title; }
-            set { SetProperty(ref title, value); }
-        }
+		private bool isBusy;
 
-        protected bool SetProperty<T>(ref T backingStore, T value,
-            [CallerMemberName] string propertyName = "",
-            Action onChanged = null)
-        {
-            if (EqualityComparer<T>.Default.Equals(backingStore, value))
-                return false;
+		private string title = string.Empty;
 
-            backingStore = value;
-            onChanged?.Invoke();
-            OnPropertyChanged(propertyName);
-            return true;
-        }
+		#endregion
 
-        #region INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            var changed = PropertyChanged;
-            if (changed == null)
-                return;
+		#region methods
 
-            changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        #endregion
-    }
+		protected bool SetProperty<T>(ref T backingStore, T value, [CallerMemberName] string propertyName = "", Action onChanged = null)
+		{
+			if (EqualityComparer<T>.Default.Equals(backingStore, value))
+			{
+				return false;
+			}
+			backingStore = value;
+			onChanged?.Invoke();
+			OnPropertyChanged(propertyName);
+			return true;
+		}
+
+		#endregion
+
+		#region properties
+
+		public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+
+		public bool IsBusy
+		{
+			get => isBusy;
+			set => SetProperty(ref isBusy, value);
+		}
+
+		public string Title
+		{
+			get => title;
+			set => SetProperty(ref title, value);
+		}
+
+		#endregion
+
+		#region INotifyPropertyChanged
+
+		public event PropertyChangedEventHandler PropertyChanged;
+
+		protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+		{
+			var changed = PropertyChanged;
+			if (changed == null)
+			{
+				return;
+			}
+			changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
+
+		#endregion
+	}
 }

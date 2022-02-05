@@ -1,32 +1,37 @@
-﻿using System;
-using Ui.Mobile.Services;
-using Ui.Mobile.Views;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-namespace Ui.Mobile
+﻿namespace Ui.Mobile
 {
-    public partial class App : Application
-    {
+	using Services;
+	using System;
+	using System.Linq;
+	using Xamarin.Forms;
 
-        public App()
-        {
-            InitializeComponent();
+	public partial class App : Application
+	{
+		#region constructors and destructors
 
-            DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
-        }
+		public App()
+		{
+			InitializeComponent();
+			DependencyService.Register<MockDataStore>();
+			MainPage = new AppShell();
+		}
 
-        protected override void OnStart()
-        {
-        }
+		#endregion
 
-        protected override void OnSleep()
-        {
-        }
+		#region methods
 
-        protected override void OnResume()
-        {
-        }
-    }
+		protected override void OnResume()
+		{
+		}
+
+		protected override void OnSleep()
+		{
+		}
+
+		protected override void OnStart()
+		{
+		}
+
+		#endregion
+	}
 }

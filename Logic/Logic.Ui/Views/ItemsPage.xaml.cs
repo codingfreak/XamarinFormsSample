@@ -1,32 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Ui.Mobile.Models;
-using Ui.Mobile.ViewModels;
-using Ui.Mobile.Views;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-namespace Ui.Mobile.Views
+﻿namespace Ui.Mobile.Views
 {
-    public partial class ItemsPage : ContentPage
-    {
-        ItemsViewModel _viewModel;
+	using System;
+	using System.Linq;
+	using ViewModels;
+	using Xamarin.Forms;
 
-        public ItemsPage()
-        {
-            InitializeComponent();
+	public partial class ItemsPage : ContentPage
+	{
+		#region member vars
 
-            BindingContext = _viewModel = new ItemsViewModel();
-        }
+		private readonly ItemsViewModel _viewModel;
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            _viewModel.OnAppearing();
-        }
-    }
+		#endregion
+
+		#region constructors and destructors
+
+		public ItemsPage()
+		{
+			InitializeComponent();
+			BindingContext = _viewModel = new ItemsViewModel();
+		}
+
+		#endregion
+
+		#region methods
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			_viewModel.OnAppearing();
+		}
+
+		#endregion
+	}
 }

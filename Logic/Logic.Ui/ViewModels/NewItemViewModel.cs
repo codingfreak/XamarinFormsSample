@@ -1,65 +1,78 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Input;
-using Ui.Mobile.Models;
-using Xamarin.Forms;
-
-namespace Ui.Mobile.ViewModels
+﻿namespace Ui.Mobile.ViewModels
 {
-    public class NewItemViewModel : BaseViewModel
-    {
-        private string text;
-        private string description;
+	using Models;
+	using System;
+	using System.Linq;
+	using Xamarin.Forms;
 
-        public NewItemViewModel()
-        {
-            SaveCommand = new Command(OnSave, ValidateSave);
-            CancelCommand = new Command(OnCancel);
-            this.PropertyChanged +=
-                (_, __) => SaveCommand.ChangeCanExecute();
-        }
+	public class NewItemViewModel : BaseViewModel
+	{
+		#region member vars
 
-        private bool ValidateSave()
-        {
-            return !String.IsNullOrWhiteSpace(text)
-                && !String.IsNullOrWhiteSpace(description);
-        }
+		private string description;
+		private string text;
 
-        public string Text
-        {
-            get => text;
-            set => SetProperty(ref text, value);
-        }
+		#endregion
 
-        public string Description
-        {
-            get => description;
-            set => SetProperty(ref description, value);
-        }
+		#region constructors and destructors
 
-        public Command SaveCommand { get; }
-        public Command CancelCommand { get; }
+		public NewItemViewModel()
+		{
+			SaveCommand = new Command(OnSave, ValidateSave);
+			CancelCommand = new Command(OnCancel);
+			PropertyChanged += (_, __) => SaveCommand.ChangeCanExecute();
+		}
 
-        private async void OnCancel()
-        {
-            // This will pop the current page off the navigation stack
-            await Shell.Current.GoToAsync("..");
-        }
+		#endregion
 
-        private async void OnSave()
-        {
-            Item newItem = new Item()
-            {
-                Id = Guid.NewGuid().ToString(),
-                Text = Text,
-                Description = Description
-            };
+		#region methods
 
-            await DataStore.AddItemAsync(newItem);
+		private async void OnCancel()
+		{
+			// This will pop the current page off the navigation stack
+			await Shell.Current.GoToAsync("..");
+		}
 
-            // This will pop the current page off the navigation stack
-            await Shell.Current.GoToAsync("..");
-        }
-    }
+		private async void OnSave()
+		{
+			var newItem = new Item
+			{
+				Id = Guid.NewGuid()
+					.ToString(),
+				Text = Text,
+				Description = Description
+			};
+			await DataStore.AddItemAsync(newItem);
+
+			// This will pop the current page off the navigation stack
+			await Shell.Current.GoToAsync("..");
+		}
+
+		private bool ValidateSave()
+		{
+			return !String.IsNullOrWhiteSpace(text) && !String.IsNullOrWhiteSpace(description);
+		}
+
+		#endregion
+
+		#region properties
+
+		public string Text
+		{
+			get => text;
+			set => SetProperty(ref text, value);
+		}
+
+		public string Description
+		{
+			get => description;
+			set => SetProperty(ref description, value);
+		}
+
+		public Command SaveCommand { get; }
+
+		public Command CancelCommand { get; }
+
+		#endregion
+	}
 }

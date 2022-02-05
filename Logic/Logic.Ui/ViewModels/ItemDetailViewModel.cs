@@ -1,57 +1,66 @@
-﻿using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using Ui.Mobile.Models;
-using Xamarin.Forms;
-
-namespace Ui.Mobile.ViewModels
+﻿namespace Ui.Mobile.ViewModels
 {
-    [QueryProperty(nameof(ItemId), nameof(ItemId))]
-    public class ItemDetailViewModel : BaseViewModel
-    {
-        private string itemId;
-        private string text;
-        private string description;
-        public string Id { get; set; }
+	using System;
+	using System.Diagnostics;
+	using System.Linq;
+	using Xamarin.Forms;
 
-        public string Text
-        {
-            get => text;
-            set => SetProperty(ref text, value);
-        }
+	[QueryProperty(nameof(ItemId), nameof(ItemId))]
+	public class ItemDetailViewModel : BaseViewModel
+	{
+		#region member vars
 
-        public string Description
-        {
-            get => description;
-            set => SetProperty(ref description, value);
-        }
+		private string description;
+		private string itemId;
+		private string text;
 
-        public string ItemId
-        {
-            get
-            {
-                return itemId;
-            }
-            set
-            {
-                itemId = value;
-                LoadItemId(value);
-            }
-        }
+		#endregion
 
-        public async void LoadItemId(string itemId)
-        {
-            try
-            {
-                var item = await DataStore.GetItemAsync(itemId);
-                Id = item.Id;
-                Text = item.Text;
-                Description = item.Description;
-            }
-            catch (Exception)
-            {
-                Debug.WriteLine("Failed to Load Item");
-            }
-        }
-    }
+		#region methods
+
+		public async void LoadItemId(string itemId)
+		{
+			try
+			{
+				var item = await DataStore.GetItemAsync(itemId);
+				Id = item.Id;
+				Text = item.Text;
+				Description = item.Description;
+			}
+			catch (Exception)
+			{
+				Debug.WriteLine("Failed to Load Item");
+			}
+		}
+
+		#endregion
+
+		#region properties
+
+		public string Id { get; set; }
+
+		public string Text
+		{
+			get => text;
+			set => SetProperty(ref text, value);
+		}
+
+		public string Description
+		{
+			get => description;
+			set => SetProperty(ref description, value);
+		}
+
+		public string ItemId
+		{
+			get => itemId;
+			set
+			{
+				itemId = value;
+				LoadItemId(value);
+			}
+		}
+
+		#endregion
+	}
 }
