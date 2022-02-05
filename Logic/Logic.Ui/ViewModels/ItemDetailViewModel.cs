@@ -1,5 +1,7 @@
-﻿namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
+namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
 {
+	using BaseTypes;
+	using Models;
 	using System;
 	using System.Diagnostics;
 	using System.Linq;
@@ -8,24 +10,13 @@
 	[QueryProperty(nameof(ItemId), nameof(ItemId))]
 	public class ItemDetailViewModel : BaseViewModel
 	{
-		#region member vars
-
-		private string description;
-		private string itemId;
-		private string text;
-
-		#endregion
-
 		#region methods
 
 		public async void LoadItemId(string itemId)
 		{
 			try
 			{
-				var item = await DataStore.GetItemAsync(itemId);
-				Id = item.Id;
-				Text = item.Text;
-				Description = item.Description;
+				Item = await DataStore.GetItemAsync(itemId);
 			}
 			catch (Exception)
 			{
@@ -37,28 +28,12 @@
 
 		#region properties
 
-		public string Id { get; set; }
-
-		public string Text
-		{
-			get => text;
-			set => SetProperty(ref text, value);
-		}
-
-		public string Description
-		{
-			get => description;
-			set => SetProperty(ref description, value);
-		}
+		public Item Item { get; set; }
 
 		public string ItemId
 		{
-			get => itemId;
-			set
-			{
-				itemId = value;
-				LoadItemId(value);
-			}
+			get => Item?.Id;
+			set => LoadItemId(value);
 		}
 
 		#endregion

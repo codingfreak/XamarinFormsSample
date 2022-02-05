@@ -1,11 +1,9 @@
 namespace codingfreaks.XamarinFormsSample.Logic.Ui.Views
 {
-	using BaseTypes;
 	using System;
 	using System.Linq;
-	using Xamarin.Forms;
 
-	public partial class ItemsPage : BaseContentPage
+	public partial class ItemsPage
 	{
 		#region constructors and destructors
 

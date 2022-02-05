@@ -1,5 +1,6 @@
 namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
 {
+	using BaseTypes;
 	using Models;
 	using System;
 	using System.Collections.ObjectModel;
@@ -26,7 +27,6 @@ namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
 			LoadItemsCommand = new Command(async () => await LoadItemsAsync());
 			ItemTapped = new Command<Item>(OnItemSelected);
 			AddItemCommand = new Command(OnAddItem);
-
 		}
 
 		#endregion
@@ -37,6 +37,16 @@ namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
 		{
 			IsBusy = true;
 			SelectedItem = null;
+		}
+
+		/// <inheritdoc />
+		protected override void OnPropertyChanged(string propertyName = "")
+		{
+			base.OnPropertyChanged(propertyName);
+			if (propertyName == nameof(SelectedItem))
+			{
+				OnItemSelected(SelectedItem);
+			}
 		}
 
 		private async Task LoadItemsAsync()
@@ -89,15 +99,7 @@ namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
 
 		public Command<Item> ItemTapped { get; }
 
-		public Item SelectedItem
-		{
-			get => _selectedItem;
-			set
-			{
-				SetProperty(ref _selectedItem, value);
-				OnItemSelected(value);
-			}
-		}
+		public Item SelectedItem { get; set; }
 
 		#endregion
 	}

@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="codingfreaks.XamarinFormsSample.Logic.Ui.Views.NewItemPage"
-             Shell.PresentationMode="ModalAnimated"
-             Title="New Item"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             ios:Page.UseSafeArea="true">
+<BaseTypes:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 x:Class="codingfreaks.XamarinFormsSample.Logic.Ui.Views.NewItemPage"
+                 Shell.PresentationMode="ModalAnimated"
+                 Title="New Item"
+                 xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                 xmlns:BaseTypes="clr-namespace:codingfreaks.XamarinFormsSample.Logic.Ui.BaseTypes;assembly=XamarinFormsSample.Logic.Ui"
+                 BindingContext="{Binding NewItemViewModel, Source={StaticResource ViewModelLocator}}"
+                 ios:Page.UseSafeArea="true">
 	<ContentPage.Content>
 		<StackLayout Spacing="3" Padding="15">
 			<Label Text="Text" FontSize="Medium" />
-			<Entry Text="{Binding Text, Mode=TwoWay}" FontSize="Medium" />
+			<Entry Text="{Binding Item.Text, Mode=TwoWay}" FontSize="Medium" />
 			<Label Text="Description" FontSize="Medium" />
-			<Editor Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+			<Editor Text="{Binding Item.Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
 			<StackLayout Orientation="Horizontal">
 				<Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand" />
 				<Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand" />
 			</StackLayout>
 		</StackLayout>
 	</ContentPage.Content>
-</ContentPage>
+</BaseTypes:BaseContentPage>

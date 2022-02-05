@@ -20,6 +20,10 @@ namespace codingfreaks.XamarinFormsSample.Logic.Ui
 		private void InitDependencies()
 		{
 			DependencyService.Register<ItemsViewModel>();
+			DependencyService.Register<NewItemViewModel>();
+			DependencyService.Register<ItemDetailViewModel>();
+			DependencyService.Register<LoginViewModel>();
+			DependencyService.Register<MyViewModel>();
 			DependencyService.Register<MockDataStore>();
 		}
 

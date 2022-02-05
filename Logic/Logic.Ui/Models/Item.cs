@@ -1,9 +1,10 @@
-﻿namespace codingfreaks.XamarinFormsSample.Logic.Ui.Models
+namespace codingfreaks.XamarinFormsSample.Logic.Ui.Models
 {
+	using BaseTypes;
 	using System;
 	using System.Linq;
 
-	public class Item
+	public class Item : BaseModel
 	{
 		#region properties
 
@@ -12,6 +13,8 @@
 		public string Text { get; set; }
 
 		public string Description { get; set; }
+
+		public bool IsValid => !string.IsNullOrWhiteSpace(Text) && !string.IsNullOrWhiteSpace(Description);
 
 		#endregion
 	}

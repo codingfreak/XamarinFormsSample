@@ -1,5 +1,6 @@
-﻿namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
+namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
 {
+	using BaseTypes;
 	using Models;
 	using System;
 	using System.Linq;
@@ -9,8 +10,7 @@
 	{
 		#region member vars
 
-		private string description;
-		private string text;
+		private Item _item;
 
 		#endregion
 
@@ -18,9 +18,10 @@
 
 		public NewItemViewModel()
 		{
-			SaveCommand = new Command(OnSave, ValidateSave);
+			SaveCommand = new Command(OnSave, () => Item.IsValid);
 			CancelCommand = new Command(OnCancel);
-			PropertyChanged += (_, __) => SaveCommand.ChangeCanExecute();
+			Item = new Item();
+			Item.PropertyChanged += (_, __) => SaveCommand.ChangeCanExecute();
 		}
 
 		#endregion
@@ -35,39 +36,17 @@
 
 		private async void OnSave()
 		{
-			var newItem = new Item
-			{
-				Id = Guid.NewGuid()
-					.ToString(),
-				Text = Text,
-				Description = Description
-			};
-			await DataStore.AddItemAsync(newItem);
+			await DataStore.AddItemAsync(Item);
 
 			// This will pop the current page off the navigation stack
 			await Shell.Current.GoToAsync("..");
-		}
-
-		private bool ValidateSave()
-		{
-			return !String.IsNullOrWhiteSpace(text) && !String.IsNullOrWhiteSpace(description);
 		}
 
 		#endregion
 
 		#region properties
 
-		public string Text
-		{
-			get => text;
-			set => SetProperty(ref text, value);
-		}
-
-		public string Description
-		{
-			get => description;
-			set => SetProperty(ref description, value);
-		}
+		public Item Item { get; set; }
 
 		public Command SaveCommand { get; }
 

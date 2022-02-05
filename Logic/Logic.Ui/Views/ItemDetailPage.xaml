@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="codingfreaks.XamarinFormsSample.Logic.Ui.Views.ItemDetailPage"
-             Title="{Binding Title}">
+<BaseTypes:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:BaseTypes="clr-namespace:codingfreaks.XamarinFormsSample.Logic.Ui.BaseTypes;assembly=XamarinFormsSample.Logic.Ui"
+                 x:Class="codingfreaks.XamarinFormsSample.Logic.Ui.Views.ItemDetailPage"
+                 BindingContext="{Binding ItemDetailViewModel, Source={StaticResource ViewModelLocator}}"
+                 Title="{Binding Title}">
 	<StackLayout Spacing="20" Padding="15">
 		<Label Text="Text:" FontSize="Medium" />
-		<Label Text="{Binding Text}" FontSize="Small" />
+		<Label Text="{Binding Item.Text}" FontSize="Small" />
 		<Label Text="Description:" FontSize="Medium" />
-		<Label Text="{Binding Description}" FontSize="Small" />
+		<Label Text="{Binding Item.Description}" FontSize="Small" />
 	</StackLayout>
-</ContentPage>
+</BaseTypes:BaseContentPage>

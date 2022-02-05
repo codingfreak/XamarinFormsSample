@@ -1,18 +1,15 @@
-﻿namespace codingfreaks.XamarinFormsSample.Logic.Ui.Views
+namespace codingfreaks.XamarinFormsSample.Logic.Ui.Views
 {
 	using System;
 	using System.Linq;
-	using ViewModels;
-	using Xamarin.Forms;
 
-	public partial class ItemDetailPage : ContentPage
+	public partial class ItemDetailPage
 	{
 		#region constructors and destructors
 
 		public ItemDetailPage()
 		{
 			InitializeComponent();
-			BindingContext = new ItemDetailViewModel();
 		}
 
 		#endregion

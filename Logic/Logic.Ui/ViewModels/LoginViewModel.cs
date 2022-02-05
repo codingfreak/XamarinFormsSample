@@ -1,5 +1,6 @@
 namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
 {
+	using BaseTypes;
 	using System;
 	using System.Linq;
 	using Views;

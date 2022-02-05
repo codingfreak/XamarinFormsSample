@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<BaseTypes:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:BaseTypes="clr-namespace:codingfreaks.XamarinFormsSample.Logic.Ui.BaseTypes;assembly=XamarinFormsSample.Logic.Ui"
+			 BindingContext="{Binding MyViewModel,Source={StaticResource ViewModelLocator}}"
+             x:Class="codingfreaks.XamarinFormsSample.Logic.Ui.Views.MyPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{Binding Message}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</BaseTypes:BaseContentPage>
