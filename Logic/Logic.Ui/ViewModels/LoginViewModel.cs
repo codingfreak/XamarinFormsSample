@@ -1,4 +1,4 @@
-﻿namespace Ui.Mobile.ViewModels
+namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
 {
 	using System;
 	using System.Linq;
@@ -21,7 +21,7 @@
 		private async void OnLoginClicked(object obj)
 		{
 			// Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-			await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+			await Shell.Current.GoToAsync($"//{nameof(ItemsPage)}");
 		}
 
 		#endregion

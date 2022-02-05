@@ -1,5 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
+		<AssemblyName>XamarinFormsSample.$(MSBuildProjectName)</AssemblyName>
+		<RootNamespace>codingfreaks.XamarinFormsSample.$(MSBuildProjectName)</RootNamespace>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
 	</PropertyGroup>

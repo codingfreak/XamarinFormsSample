@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-       xmlns:local="clr-namespace:Ui.Mobile.Views"
+       xmlns:Views="clr-namespace:codingfreaks.XamarinFormsSample.Logic.Ui.Views;assembly=XamarinFormsSample.Logic.Ui"
        Title="Ui.Mobile"
-       x:Class="Ui.Mobile.AppShell">
+       x:Class="codingfreaks.XamarinFormsSample.Logic.Ui.AppShell">
 	<!--
         The overall app visual hierarchy is defined here, along with navigation.
     
@@ -27,14 +27,14 @@
 		</ResourceDictionary>
 	</Shell.Resources>
 	<TabBar>
-		<ShellContent Title="About" Icon="icon_about.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
-		<ShellContent Title="Browse" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
+		<ShellContent Title="Browse" Icon="icon_feed.png" ContentTemplate="{DataTemplate Views:ItemsPage}" />
+		<ShellContent Title="Browse" Icon="icon_feed.png" ContentTemplate="{DataTemplate Views:ItemsPage}" />
 	</TabBar>
 	<!--
         If you would like to navigate to this content you can do so by calling
         await Shell.Current.GoToAsync("//LoginPage");
     -->
 	<TabBar>
-		<ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+		<ShellContent Route="LoginPage" ContentTemplate="{DataTemplate Views:LoginPage}" />
 	</TabBar>
 </Shell>

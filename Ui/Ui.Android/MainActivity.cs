@@ -1,9 +1,10 @@
-﻿namespace Ui.Mobile.Droid
+namespace codingfreaks.XamarinFormsSample.Ui.Android
 {
-	using Android.App;
-	using Android.Content.PM;
-	using Android.OS;
-	using Android.Runtime;
+	using codingfreaks.XamarinFormsSample.Logic.Ui;
+	using global::Android.App;
+	using global::Android.Content.PM;
+	using global::Android.OS;
+	using global::Android.Runtime;	
 	using System;
 	using System.Linq;
 	using Xamarin.Forms;

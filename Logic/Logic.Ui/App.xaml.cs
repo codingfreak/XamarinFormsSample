@@ -1,4 +1,4 @@
-﻿namespace Ui.Mobile
+﻿namespace codingfreaks.XamarinFormsSample.Logic.Ui
 {
 	using Services;
 	using System;

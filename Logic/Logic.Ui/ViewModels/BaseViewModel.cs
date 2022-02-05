@@ -1,4 +1,4 @@
-﻿namespace Ui.Mobile.ViewModels
+﻿namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
 {
 	using Models;
 	using Services;

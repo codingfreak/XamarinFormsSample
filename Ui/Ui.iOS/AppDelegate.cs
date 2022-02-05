@@ -1,6 +1,7 @@
-﻿namespace Ui.Mobile.iOS
+namespace codingfreaks.XamarinFormsSample.Ui.iOS
 {
 	using Foundation;
+	using Logic.Ui;
 	using System;
 	using System.Linq;
 	using UIKit;

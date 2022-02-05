@@ -1,4 +1,4 @@
-﻿namespace Ui.Mobile.iOS
+namespace codingfreaks.XamarinFormsSample.Ui.iOS
 {
 	using System;
 	using System.Linq;

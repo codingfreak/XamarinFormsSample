@@ -1,4 +1,4 @@
-﻿namespace Ui.Mobile.Views
+﻿namespace codingfreaks.XamarinFormsSample.Logic.Ui.Views
 {
 	using Models;
 	using System;

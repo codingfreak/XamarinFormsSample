@@ -1,4 +1,4 @@
-﻿namespace Ui.Mobile.Models
+﻿namespace codingfreaks.XamarinFormsSample.Logic.Ui.Models
 {
 	using System;
 	using System.Linq;
