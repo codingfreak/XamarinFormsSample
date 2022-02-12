@@ -23,9 +23,9 @@ namespace codingfreaks.XamarinFormsSample.Logic.Ui.BaseTypes
 
 		public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
 
-		public bool IsBusy { get; set; }
+		public bool IsBusy { get; protected set; }
 
-		public string Title { get; set; }
+		public string Title { get; protected set; }
 
 		#endregion
 
