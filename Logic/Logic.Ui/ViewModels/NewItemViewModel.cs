@@ -1,6 +1,7 @@
 namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
 {
 	using BaseTypes;
+	using Interfaces;
 	using Models;
 	using System;
 	using System.Linq;
@@ -16,8 +17,9 @@ namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
 
 		#region constructors and destructors
 
-		public NewItemViewModel()
+		public NewItemViewModel(IDataStore<Item> dataSource)
 		{
+			DataStore = dataSource;
 			SaveCommand = new Command(OnSave, () => Item.IsValid);
 			CancelCommand = new Command(OnCancel);
 			Item = new Item();
@@ -51,6 +53,8 @@ namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
 		public Command SaveCommand { get; }
 
 		public Command CancelCommand { get; }
+
+		private IDataStore<Item> DataStore { get; }
 
 		#endregion
 	}

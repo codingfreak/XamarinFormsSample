@@ -1,4 +1,4 @@
-﻿namespace codingfreaks.XamarinFormsSample.Logic.Ui.Services
+namespace codingfreaks.XamarinFormsSample.Logic.Ui.Interfaces
 {
 	using System;
 	using System.Collections.Generic;

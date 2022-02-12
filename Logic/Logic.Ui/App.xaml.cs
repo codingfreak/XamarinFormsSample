@@ -1,5 +1,9 @@
 namespace codingfreaks.XamarinFormsSample.Logic.Ui
 {
+	using Autofac;
+	using codingfreaks.XamarinFormsSample.Logic.Ui.Models;
+	using Helpers;
+	using Interfaces;
 	using Services;
 	using System;
 	using System.Linq;
@@ -19,12 +23,14 @@ namespace codingfreaks.XamarinFormsSample.Logic.Ui
 
 		private void InitDependencies()
 		{
-			DependencyService.Register<ItemsViewModel>();
-			DependencyService.Register<NewItemViewModel>();
-			DependencyService.Register<ItemDetailViewModel>();
-			DependencyService.Register<LoginViewModel>();
-			DependencyService.Register<MyViewModel>();
-			DependencyService.Register<MockDataStore>();
+			var builder = new ContainerBuilder();
+			builder.RegisterType<MockDataStore>().As<IDataStore<Item>>().SingleInstance();
+			builder.RegisterType<ItemsViewModel>().AsSelf();
+			builder.RegisterType<NewItemViewModel>().AsSelf();
+			builder.RegisterType<ItemDetailViewModel>().AsSelf();
+			builder.RegisterType<MyViewModel>().AsSelf();
+			builder.RegisterType<ItemsViewModel>().AsSelf();
+			SharedResources.DependencyContainer = builder.Build();
 		}
 
 		#endregion

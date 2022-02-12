@@ -1,6 +1,7 @@
 namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
 {
 	using BaseTypes;
+	using Interfaces;
 	using Models;
 	using System;
 	using System.Collections.ObjectModel;
@@ -20,8 +21,9 @@ namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
 
 		#region constructors and destructors
 
-		public ItemsViewModel()
+		public ItemsViewModel(IDataStore<Item> dataSource)
 		{
+			DataStore = dataSource;
 			Title = "Browse";
 			Items = new ObservableCollection<Item>();
 			LoadItemsCommand = new Command(async () => await LoadItemsAsync());
@@ -100,6 +102,8 @@ namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
 		public Command<Item> ItemTapped { get; }
 
 		public Item SelectedItem { get; set; }
+
+		private IDataStore<Item> DataStore { get; }
 
 		#endregion
 	}

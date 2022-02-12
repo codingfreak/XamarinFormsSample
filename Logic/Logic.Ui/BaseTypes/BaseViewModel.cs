@@ -1,5 +1,6 @@
 namespace codingfreaks.XamarinFormsSample.Logic.Ui.BaseTypes
 {
+	using Interfaces;
 	using Models;
 	using Services;
 	using System;
@@ -20,8 +21,6 @@ namespace codingfreaks.XamarinFormsSample.Logic.Ui.BaseTypes
 		#endregion
 
 		#region properties
-
-		public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
 
 		public bool IsBusy { get; protected set; }
 

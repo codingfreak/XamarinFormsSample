@@ -1,6 +1,7 @@
 namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
 {
 	using BaseTypes;
+	using Interfaces;
 	using Models;
 	using System;
 	using System.Diagnostics;
@@ -10,6 +11,15 @@ namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
 	[QueryProperty(nameof(ItemId), nameof(ItemId))]
 	public class ItemDetailViewModel : BaseViewModel
 	{
+		#region constructors and destructors
+
+		public ItemDetailViewModel(IDataStore<Item> dataSource)
+		{
+			DataStore = dataSource;
+		}
+
+		#endregion
+
 		#region methods
 
 		public async void LoadItemId(string itemId)
@@ -35,6 +45,8 @@ namespace codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels
 			get => Item?.Id;
 			set => LoadItemId(value);
 		}
+
+		private IDataStore<Item> DataStore { get; }
 
 		#endregion
 	}
