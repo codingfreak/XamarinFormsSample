@@ -1,13 +1,13 @@
 namespace codingfreaks.XamarinFormsSample.Logic.Ui
 {
 	using Autofac;
-	using codingfreaks.XamarinFormsSample.Logic.Ui.Models;
 	using Helpers;
 	using Interfaces;
+	using Models;
+	using Mvvm.Helpers;
 	using Services;
 	using System;
 	using System.Linq;
-	using ViewModels;
 	using Xamarin.Forms;
 
 	public partial class App : Application
@@ -19,19 +19,6 @@ namespace codingfreaks.XamarinFormsSample.Logic.Ui
 			InitializeComponent();
 			InitDependencies();
 			MainPage = new AppShell();
-		}
-
-		private void InitDependencies()
-		{
-			var builder = new ContainerBuilder();
-			// register data store
-			builder.RegisterType<MockDataStore>().As<IDataStore<Item>>().SingleInstance();
-			// register all view model types
-			foreach (var viewModelType in ReflectionHelper.ViewModelTypes)
-			{
-				builder.RegisterType(viewModelType).AsSelf();
-			}
-			SharedResources.DependencyContainer = builder.Build();
 		}
 
 		#endregion
@@ -48,6 +35,22 @@ namespace codingfreaks.XamarinFormsSample.Logic.Ui
 
 		protected override void OnStart()
 		{
+		}
+
+		private void InitDependencies()
+		{
+			var builder = new ContainerBuilder();
+			// register data store
+			builder.RegisterType<MockDataStore>()
+				.As<IDataStore<Item>>()
+				.SingleInstance();
+			// register all view model types
+			foreach (var viewModelType in ReflectionHelper.ViewModelTypes)
+			{
+				builder.RegisterType(viewModelType)
+					.AsSelf();
+			}
+			SharedResources.DependencyContainer = builder.Build();
 		}
 
 		#endregion

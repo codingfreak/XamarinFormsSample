@@ -1,6 +1,6 @@
-namespace codingfreaks.XamarinFormsSample.Logic.Ui.Helpers
+namespace codingfreaks.XamarinFormsSample.Logic.Mvvm.Helpers
 {
-	using Mvvm.BaseTypes;
+	using BaseTypes;
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
