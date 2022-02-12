@@ -3,7 +3,7 @@
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                  xmlns:ViewModels="clr-namespace:codingfreaks.XamarinFormsSample.Logic.Ui.ViewModels;assembly=XamarinFormsSample.Logic.Ui"
                  xmlns:Models="clr-namespace:codingfreaks.XamarinFormsSample.Logic.Ui.Models;assembly=XamarinFormsSample.Logic.Ui"
-                 xmlns:BaseTypes="clr-namespace:codingfreaks.XamarinFormsSample.Logic.Ui.BaseTypes;assembly=XamarinFormsSample.Logic.Ui"
+                 xmlns:BaseTypes="clr-namespace:codingfreaks.XamarinFormsSample.Logic.Mvvm.BaseTypes;assembly=XamarinFormsSample.Logic.Mvvm"
                  x:Class="codingfreaks.XamarinFormsSample.Logic.Ui.Views.ItemsPage"
                  BindingContext="{Binding ItemsViewModel, Source={StaticResource ViewModelLocator}}"
                  Title="{Binding Title}">

@@ -6,22 +6,9 @@
 		<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
 	</PropertyGroup>
 	<ItemGroup>
-	  <None Include="FodyWeavers.xsd" />
-	</ItemGroup>
-	<ItemGroup>
-		<PackageReference Include="Autofac" Version="6.3.0" />
 		<PackageReference Include="PropertyChanged.Fody" Version="3.4.0">
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
 		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
-		<PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
-	</ItemGroup>
-	<ItemGroup>
-	  <ProjectReference Include="..\Logic.Mvvm\Logic.Mvvm.csproj" />
-	</ItemGroup>
-	<ItemGroup>
-	  <EmbeddedResource Update="Views\MyPage.xaml">
-	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-	  </EmbeddedResource>
 	</ItemGroup>
 </Project>

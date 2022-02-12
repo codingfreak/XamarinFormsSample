@@ -1,4 +1,4 @@
-namespace codingfreaks.XamarinFormsSample.Logic.Ui.BaseTypes
+namespace codingfreaks.XamarinFormsSample.Logic.Mvvm.BaseTypes
 {
 	using System;
 	using System.ComponentModel;

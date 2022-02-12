@@ -5,7 +5,7 @@
                  Shell.PresentationMode="ModalAnimated"
                  Title="New Item"
                  xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-                 xmlns:BaseTypes="clr-namespace:codingfreaks.XamarinFormsSample.Logic.Ui.BaseTypes;assembly=XamarinFormsSample.Logic.Ui"
+                 xmlns:BaseTypes="clr-namespace:codingfreaks.XamarinFormsSample.Logic.Mvvm.BaseTypes;assembly=XamarinFormsSample.Logic.Mvvm"
                  BindingContext="{Binding NewItemViewModel, Source={StaticResource ViewModelLocator}}"
                  ios:Page.UseSafeArea="true">
 	<ContentPage.Content>

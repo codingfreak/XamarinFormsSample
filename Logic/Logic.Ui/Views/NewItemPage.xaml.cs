@@ -1,11 +1,12 @@
 namespace codingfreaks.XamarinFormsSample.Logic.Ui.Views
 {
 	using Models;
+	using Mvvm.BaseTypes;
 	using System;
 	using System.Linq;
 	using ViewModels;
 
-	public partial class NewItemPage
+	public partial class NewItemPage : BaseContentPage
 	{
 		#region constructors and destructors
 

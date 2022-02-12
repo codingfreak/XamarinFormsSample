@@ -1,6 +1,6 @@
 namespace codingfreaks.XamarinFormsSample.Logic.Ui.Models
 {
-	using BaseTypes;
+	using Mvvm.BaseTypes;
 	using System;
 	using System.Linq;
 

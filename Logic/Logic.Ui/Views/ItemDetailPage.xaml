@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <BaseTypes:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                 xmlns:BaseTypes="clr-namespace:codingfreaks.XamarinFormsSample.Logic.Ui.BaseTypes;assembly=XamarinFormsSample.Logic.Ui"
+                 xmlns:BaseTypes="clr-namespace:codingfreaks.XamarinFormsSample.Logic.Mvvm.BaseTypes;assembly=XamarinFormsSample.Logic.Mvvm"
                  x:Class="codingfreaks.XamarinFormsSample.Logic.Ui.Views.ItemDetailPage"
                  BindingContext="{Binding ItemDetailViewModel, Source={StaticResource ViewModelLocator}}"
                  Title="{Binding Title}">

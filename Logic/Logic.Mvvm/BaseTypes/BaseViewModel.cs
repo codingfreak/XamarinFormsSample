@@ -1,17 +1,12 @@
-namespace codingfreaks.XamarinFormsSample.Logic.Ui.BaseTypes
+namespace codingfreaks.XamarinFormsSample.Logic.Mvvm.BaseTypes
 {
-	using Interfaces;
-	using Models;
-	using Services;
 	using System;
 	using System.ComponentModel;
 	using System.Linq;
 	using System.Runtime.CompilerServices;
-	using Xamarin.Forms;
 
 	public abstract class BaseViewModel : INotifyPropertyChanged
 	{
-
 		#region methods
 
 		public virtual void OnAppearing()
