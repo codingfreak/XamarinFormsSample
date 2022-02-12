@@ -24,12 +24,13 @@ namespace codingfreaks.XamarinFormsSample.Logic.Ui
 		private void InitDependencies()
 		{
 			var builder = new ContainerBuilder();
+			// register data store
 			builder.RegisterType<MockDataStore>().As<IDataStore<Item>>().SingleInstance();
-			builder.RegisterType<ItemsViewModel>().AsSelf();
-			builder.RegisterType<NewItemViewModel>().AsSelf();
-			builder.RegisterType<ItemDetailViewModel>().AsSelf();
-			builder.RegisterType<MyViewModel>().AsSelf();
-			builder.RegisterType<ItemsViewModel>().AsSelf();
+			// register all view model types
+			foreach (var viewModelType in ReflectionHelper.ViewModelTypes)
+			{
+				builder.RegisterType(viewModelType).AsSelf();
+			}
 			SharedResources.DependencyContainer = builder.Build();
 		}
 

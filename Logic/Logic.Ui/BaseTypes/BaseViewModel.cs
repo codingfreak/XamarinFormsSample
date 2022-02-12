@@ -9,7 +9,7 @@ namespace codingfreaks.XamarinFormsSample.Logic.Ui.BaseTypes
 	using System.Runtime.CompilerServices;
 	using Xamarin.Forms;
 
-	public class BaseViewModel : INotifyPropertyChanged
+	public abstract class BaseViewModel : INotifyPropertyChanged
 	{
 
 		#region methods
