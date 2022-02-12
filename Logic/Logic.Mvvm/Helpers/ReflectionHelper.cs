@@ -10,13 +10,15 @@ namespace codingfreaks.XamarinFormsSample.Logic.Mvvm.Helpers
 	{
 		#region constants
 
+		private static readonly Lazy<IEnumerable<Assembly>> AssemblyCollectionFactory = new Lazy<IEnumerable<Assembly>>(() => AppDomain.CurrentDomain.GetAssemblies());
+
 		private static readonly Lazy<IEnumerable<Type>> ViewModelTypeFactory = new Lazy<IEnumerable<Type>>(
 			() =>
 			{
-				return Assembly.GetExecutingAssembly()
-					.GetTypes()
-					.Where(t => !t.IsAbstract && typeof(BaseViewModel).IsAssignableFrom(t))
-					.ToArray();
+				return AssemblyCollectionFactory.Value.SelectMany(
+					a => a.GetTypes()
+						.Where(t => !t.IsAbstract && typeof(BaseViewModel).IsAssignableFrom(t))
+						.ToArray());
 			});
 
 		#endregion
