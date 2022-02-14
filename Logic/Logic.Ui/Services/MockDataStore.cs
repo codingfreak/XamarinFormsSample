@@ -1,4 +1,4 @@
-﻿namespace codingfreaks.XamarinFormsSample.Logic.Ui.Services
+namespace codingfreaks.XamarinFormsSample.Logic.Ui.Services
 {
 	using Interfaces;
 	using Models;
@@ -72,6 +72,8 @@
 
 		public async Task<bool> AddItemAsync(Item item)
 		{
+			item.Id = string.IsNullOrEmpty(item.Id) ? Guid.NewGuid()
+				.ToString() : item.Id;  
 			items.Add(item);
 			return await Task.FromResult(true);
 		}
